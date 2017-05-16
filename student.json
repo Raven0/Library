@@ -1,0 +1,38 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "departement_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "departement_id",
+            "references": "id",
+            "on": "departements",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "departement",
+            "type": "hasOne",
+            "class": "App\\Departement"
+        },
+        {
+            "name": "borrow",
+            "type": "hasMany",
+            "class": "App\\Borrow"
+        }
+    ],
+    "validations": [
+        {
+            "field": "departement_id",
+            "rules": "required"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "author",
+            "type": "string"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "borrow",
+            "type": "belongsToMany",
+            "class": "App\\Borrow"
+        }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required"
+        },
+        {
+            "field": "author",
+            "rules": "required"
+        }
+    ]
+}
+
+/*
+php artisan crud:generate Book --fields_from_file="book.json" --view-path=book --controller-namespace=Book --route-group=book --pagination="5"
+*/

@@ -1,0 +1,56 @@
+{
+    "fields": [
+        {
+            "name": "student_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "book_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "borrow_date",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "return_date",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "student_id",
+            "references": "id",
+            "on": "students",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "book_id",
+            "references": "id",
+            "on": "books",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "student",
+            "type": "belongsTo",
+            "class": "App\\Student"
+        },
+        {
+            "name": "book",
+            "type": "belongsToMany",
+            "class": "App\\Book"
+        }
+    ],
+    "validations": [
+        {
+            "field": "student_id",
+            "rules": "required"
+        },
+        {
+            "field": "book_id",
+            "rules": "required"
+        }
+    ]
+}
